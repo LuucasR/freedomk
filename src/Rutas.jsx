@@ -30,7 +30,7 @@ const esp =
     lang_bottom: "Ingles",
     lang_bottom_mobile: "ESP",
     link_4 : "Equipo",
-    title_1 : "No te quedes por fuera y haz historia!",
+    title_1 : "¡No te quedes por fuera y haz historia!",
     description_1 : "Preventa disponible hasta el 31 de Agosto o hasta agotarse la existencia de los primeros 500 NFTs",
     title_2 : "Recuerda",
     description_2: <>Solo serán{" "}

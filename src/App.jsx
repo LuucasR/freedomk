@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 
 import "./globals.scss";
+//import useNft from "./hooks/redMumbai"
+//import { useWeb3React } from "@web3-react/core"
 
 function App({props}) {
   const {
@@ -25,6 +27,20 @@ function App({props}) {
     locate_href
   } = props
 
+  //const [numero, setNumero] = useState("0")
+
+  // const contadorNumero = (e) =>{
+  // setNumero(e.target.value)
+  //}
+
+  // contractNft = useNft();
+
+//  const mintear = () => {
+//  platziPunks.methods.mint(numero).send({
+//     from:account,
+//    value: "20000000000000000" * numero
+//   });
+//  }
 
   const [clicked, setClicked] = useState(false);
   const [lang, setLang] = useState(false);

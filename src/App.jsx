@@ -2,7 +2,23 @@ import React, { useState } from "react";
 
 import "./globals.scss";
 
-function App() {
+function App({props}) {
+  const {
+    link_1,
+    link_2,
+    link_3,
+    link_4,
+    title_1,
+    description_1,
+    title_2,
+    description_2,
+    sub_description_1,
+    sub_description_2,
+    sub_description_3,
+    footer_1
+  } = props
+
+
   const [clicked, setClicked] = useState(false);
   const handleClick = () => {
     //cuando esta true lo pasa a false y vice versa
@@ -16,16 +32,16 @@ function App() {
           <img src="/images/navbar-logo.png" alt="" width={170} />
           <ul className="nav-items">
             <li>
-              <a href="#">Coleccion NFT</a>
+              <a href="#">{link_1}</a>
             </li>
             <li>
-              <a href="#">Preventa</a>
+              <a href="#">{link_2}</a>
             </li>
             <li>
-              <a href="#">Roadmaps</a>
+              <a href="#">{link_3}</a>
             </li>
             <li>
-              <a href="#">Equipo</a>
+              <a href="#">{link_4}</a>
             </li>
             <li>
               <select>
@@ -78,16 +94,16 @@ function App() {
           {clicked ? (
             <ul className="showNav">
               <li onClick={handleClick}>
-                <a href="#">Coleccion NFT</a>
+                <a href="#">{link_1}</a>
               </li>
               <li onClick={handleClick}>
-                <a href="#">Preventa</a>
+                <a href="#">{link_2}</a>
               </li>
               <li onClick={handleClick}>
-                <a href="#">Roadmaps</a>
+                <a href="#">{link_3}</a>
               </li>
               <li onClick={handleClick}>
-                <a href="#">Equipo</a>
+                <a href="#">{link_4}</a>
               </li>
             </ul>
           ) : (
@@ -103,50 +119,40 @@ function App() {
         <div className="cube3"></div>
         <div className="cube4"></div>
         <div className="main-header">
-          <p>No te quedes por fuera y haz historia!</p>
+          <p>{title_1}</p>
           <div className="button-container">
             <button>Minting</button>
           </div>
           <div className="header-separation"></div>
           <p className="header-price">0.35 ETH</p>
           <h4 className="header-priceInfo">
-            Preventa disponible hasta el 31 de Agosto o hasta agotarse la
-            existencia de los primeros 500 NFTs
+            {description_1}
           </h4>
         </div>
       </header>
       <section className="recuerda">
         <div className="recuerda-left">
-          <h3>Recuerda</h3>
+          <h3>{title_2}</h3>
           <div className="recuerda-separation"></div>
           <p>
-            Solo serán{" "}
-            <b>
-              2000 NFTs totalmente originales hechos completamente a mano por
-              más de 50 artistas.
-            </b>
+            {description_2}
           </p>
           <p>
-            ¡<b>FreedomK</b> es una causa en pro de la mujer y tú estás
-            ayudando!
+            {sub_description_1}
           </p>
           <p>
-            La preventa y el precio de{" "}
-            <b>0.35 Eth sólo estará disponible hasta el día 31 de Agosto.</b>{" "}
-            Luego será mucho más.
+            {sub_description_2}
           </p>
         </div>
         <div className="recuerda-right">
-          <img src="/images/section.png" alt="" width={620} />
+          <img src="/images/section.png" alt="" width={420} />
         </div>
       </section>
       <footer className="footer">
         <div className="footer-up">
           <img src="/images/navbar-logo.png" alt="" width={324} />
           <p>
-            La colección <b>Frida Kahlo Art</b> es la primera colección amplia
-            de NFTs en la que cada uno se ha hecho totalmente a mano sin usar
-            patrones repetidos ni combinaciones de plantillas.
+            {footer_1}
           </p>
           <div className="footer-media">
             <button>

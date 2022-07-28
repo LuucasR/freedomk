@@ -20,9 +20,15 @@ export default Rutas
 
 const esp = 
 {
+    image_url_father: "./images/esp.png",
+    image_url_children: "./images/eeuu.png",
     link_1 : "Coleccion NFT",
     link_2 : "Preventa",
     link_3 : "Roadmaps",
+    lang_top: "Español",
+    lang_top_mobile: "EN",
+    lang_bottom: "Ingles",
+    lang_bottom_mobile: "ESP",
     link_4 : "Equipo",
     title_1 : "No te quedes por fuera y haz historia!",
     description_1 : "Preventa disponible hasta el 31 de Agosto o hasta agotarse la existencia de los primeros 500 NFTs",
@@ -40,14 +46,22 @@ const esp =
 
     footer_1 : <>La colección <b>Frida Kahlo Art</b> es la primera colección amplia
     de NFTs en la que cada uno se ha hecho totalmente a mano sin usar
-    patrones repetidos ni combinaciones de plantillas.</>
+    patrones repetidos ni combinaciones de plantillas.
+    </>,
+    locate_href: "/EN"
 }
 
 const en = 
 {
+    image_url_father: "./images/eeuu.png",
+    image_url_children: "./images/esp.png",
     link_1 : "NFT Collection",
     link_2 : "Prevent",
     link_3 : "Roadmaps",
+    lang_top: "English",
+    lang_bottom: "Spanish",
+    lang_top_mobile: "ESP",
+    lang_bottom_mobile: "ENG",
     link_4 : "Team",
     title_1 : "Don't be left out and make history with the NFT's future by joining FreedomK's first collection of unique and authentic art.",
     description_1 : "Presale available until August 31 or until the first 500 NFTs are sold out",
@@ -61,5 +75,6 @@ const en =
     <b> 0.35 Eth will only be available until August 31st. After that</b>{" "}
     , it will cost much more. </>,
 
-    footer_1 : <>The <b>Frida Kahlo Art </b> collection is the first comprehensive collection of NFTs in which each piece has been made entirely by hand without the use of repeated patterns or stencil combinations</>
+    footer_1 : <>The <b>Frida Kahlo Art </b> collection is the first comprehensive collection of NFTs in which each piece has been made entirely by hand without the use of repeated patterns or stencil combinations</>,
+    locate_href: "/ESP"
 }

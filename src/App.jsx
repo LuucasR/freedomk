@@ -8,23 +8,54 @@ function App({props}) {
     link_2,
     link_3,
     link_4,
+    lang_top,
+    lang_bottom,
+    lang_top_mobile,
+    lang_bottom_mobile,
     title_1,
+    image_url_father,
+    image_url_children,
     description_1,
     title_2,
     description_2,
     sub_description_1,
     sub_description_2,
     sub_description_3,
-    footer_1
+    footer_1,
+    locate_href
   } = props
 
 
   const [clicked, setClicked] = useState(false);
-  const handleClick = () => {
-    //cuando esta true lo pasa a false y vice versa
-    setClicked(!clicked);
-    console.log("hola");
+  const [lang, setLang] = useState(false);
+
+
+  const handleLangMovile = () => {
+
+  }
+  const handleLang = () => {
+    if (lang) {
+      setTimeout(function () {
+        setLang(false);
+      }, 1000);
+    } else {
+      setLang(true);
+    }
   };
+
+  const handleMobileLang = () => {
+    lang ? setLang(false) : setLang(true)
+  }
+
+  const handleClick = () => {
+    setClicked(!clicked);
+  };
+
+  const routeLang = () => {
+    window.location.href = (locate_href)
+  }
+
+
   return (
     <main>
       <header className="header">
@@ -44,10 +75,13 @@ function App({props}) {
               <a href="#">{link_4}</a>
             </li>
             <li>
-              <select>
-                <option selected>Español</option>
-                <option>English</option>
-              </select>
+              
+              <div className="container_langs">
+                <p onMouseLeave={handleLang} onMouseEnter={handleLang}> <img src={image_url_father}></img>{lang_top} <i class="fa-solid fa-sort-down"></i></p>
+                <div onMouseLeave={handleLang} onMouseEnter={handleLang} className={ !lang ? "none sub_language" : "sub_language"}>
+                   <small onClick={routeLang}><img src={image_url_children}></img>{lang_bottom}</small>
+                </div>
+              </div>
             </li>
           </ul>
           <ul className="nav-media">
@@ -59,6 +93,9 @@ function App({props}) {
             </a>
             <a href="#">
               <img src="/svg/youtube.svg" alt="#" />
+            </a>
+            <a href="#">
+              <img src="/svg/twitter.svg" alt="#" />
             </a>
           </ul>
         </nav>
@@ -86,10 +123,12 @@ function App({props}) {
                 <img src="/svg/youtube.svg" alt="#" />
               </a>
             </ul>
-            <select name="" id="">
-              <option value="">ESP</option>
-              <option value="">ENG</option>
-            </select>
+            <div className="container_langs_mobile">
+                <p onClick={handleMobileLang}> <img src={image_url_father}></img>{lang_top_mobile} <i class="fa-solid fa-sort-down"></i></p>
+                  <div className={ !lang ? "none sub_language" : "sub_language"}>
+                      <small onClick={routeLang}><img src={image_url_children}></img>{lang_bottom_mobile}</small>
+                  </div>
+              </div>
           </div>
           {clicked ? (
             <ul className="showNav">

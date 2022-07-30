@@ -1,11 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import Rutas from "./Rutas.jsx";
+import { Web3ReactProvider } from '@web3-react/core';
+
+import { getLibrary } from './config/web3/redes';
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Rutas />
+    <Web3ReactProvider getLibrary={getLibrary}>
+      <Rutas />
+    </Web3ReactProvider>
   </React.StrictMode>
 );
 

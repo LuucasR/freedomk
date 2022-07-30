@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
+import useTruncatedAddress from "./hooks/useTruncatedAddress";
+import { connector } from './config/web3/redes'
 
 import "./globals.scss";
-//import useNft from "./hooks/redMumbai"
-//import { useWeb3React } from "@web3-react/core"
+import useNft from "./hooks/RedMumbai"
+import { useWeb3React } from "@web3-react/core"
 
 function App({props}) {
   const {
@@ -27,20 +29,45 @@ function App({props}) {
     locate_href
   } = props
 
-  //const [numero, setNumero] = useState("0")
+  //conexion metamask
 
-  // const contadorNumero = (e) =>{
-  // setNumero(e.target.value)
-  //}
+  const { active, activate, deactivate, account, error, library } =
+  useWeb3React();
 
-  // contractNft = useNft();
+  const connect = useCallback(() => {
+    activate(connector);
+    localStorage.setItem("previouslyConnected", "true");
+  }, [activate]);
 
-//  const mintear = () => {
-//  platziPunks.methods.mint(numero).send({
-//     from:account,
-//    value: "20000000000000000" * numero
-//   });
-//  }
+  const disconnect = () => {
+    deactivate();
+    localStorage.removeItem("previouslyConnected");
+  };
+
+  useEffect(() => {
+    if (localStorage.getItem("previouslyConnected") === "true") connect();
+  }, [connect]);
+
+
+  const truncatedAddress = useTruncatedAddress(account);
+
+  console.log(truncatedAddress)
+    const [numero, setNumero] = useState("0")
+
+    const contadorNumero = (e) =>{
+    setNumero(e.target.value)
+    }
+
+    
+
+    const contractNft = useNft();
+
+   const mintear = () => {
+    contractNft.methods.mint(numero).send({
+      from:account,
+     value: "20000000000000000" * numero
+    });
+   }
 
   const [clicked, setClicked] = useState(false);
   const [lang, setLang] = useState(false);
@@ -49,6 +76,8 @@ function App({props}) {
   const handleLangMovile = () => {
 
   }
+
+  
   const handleLang = () => {
     if (lang) {
       setTimeout(function () {
@@ -76,6 +105,7 @@ function App({props}) {
     <main>
       <header className="header">
         <nav className="nav">
+          <button onClick={connect}>Conectar metamask</button>
           <img src="/images/navbar-logo.png" alt="" width={170} />
           <ul className="nav-items">
             <li>
@@ -176,7 +206,7 @@ function App({props}) {
         <div className="main-header">
           <p>{title_1}</p>
           <div className="button-container">
-            <button>Minting</button>
+            <button onClick={mintear}>Minting</button>
           </div>
           <div className="header-separation"></div>
           <p className="header-price">0.35 ETH</p>

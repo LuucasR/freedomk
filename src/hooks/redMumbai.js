@@ -6,7 +6,7 @@ import abiNft from "../config/web3/abiNft";
 const {address, abi} = abiNft;
 
 
-const redMumbai = () => {
+const RedMumbai = () => {
   const {active,library,chainId } = useWeb3React()
 
   const mumbai = useMemo( () => {
@@ -16,4 +16,4 @@ const redMumbai = () => {
     return mumbai
 };
 
-export default redMumbai;
+export default RedMumbai;

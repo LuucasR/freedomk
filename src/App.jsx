@@ -119,7 +119,6 @@ console.log(coming)
     <main>
       <header className="header">
         <nav className="nav">
-          <button onClick={connect}>Conectar metamask</button>
           <img src="/images/navbar-logo.png" alt="" width={170} />
           <ul className="nav-items">
             <li>
@@ -135,7 +134,6 @@ console.log(coming)
               <a href="#">{link_4}</a>
             </li>
             <li>
-              
               <div className="container_langs">
                 <p onMouseLeave={handleLang} onMouseEnter={handleLang}> <img src={image_url_father}></img>{lang_top} <i class="fa-solid fa-sort-down"></i></p>
                 <div onMouseLeave={handleLang} onMouseEnter={handleLang} className={ !lang ? "none sub_language" : "sub_language"}>
@@ -143,6 +141,7 @@ console.log(coming)
                 </div>
               </div>
             </li>
+            
           </ul>
           <ul className="nav-media">
             <a href="#">
@@ -157,6 +156,10 @@ console.log(coming)
             <a href="#">
               <img src="/svg/twitter.svg" alt="#" />
             </a>
+            <a href="#">
+              <img src="/svg/discord-logo.png" alt="#" />
+            </a>
+          <button className="connect_button">Conectar wallet</button>
           </ul>
         </nav>
         <nav className="responsiveNav">

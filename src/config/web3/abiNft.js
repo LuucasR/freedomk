@@ -1,6 +1,6 @@
 const nftAbi = {
     address: {
-        80001: "0xAEaB34F09fD007c660AFf0de70F478d2c3f6284b"
+        137:"0x70a2086380f0C274DD1046dA4888003ddf99cAc1"
     },
     abi:[
         {
@@ -222,6 +222,19 @@ const nftAbi = {
             "type": "function"
         },
         {
+            "inputs": [],
+            "name": "getBalance",
+            "outputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
             "inputs": [
                 {
                     "internalType": "address",
@@ -240,6 +253,19 @@ const nftAbi = {
                     "internalType": "bool",
                     "name": "",
                     "type": "bool"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "lider",
+            "outputs": [
+                {
+                    "internalType": "address payable",
+                    "name": "",
+                    "type": "address"
                 }
             ],
             "stateMutability": "view",
@@ -549,6 +575,13 @@ const nftAbi = {
                 }
             ],
             "name": "transferOwnership",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "withdraw",
             "outputs": [],
             "stateMutability": "nonpayable",
             "type": "function"

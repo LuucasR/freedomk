@@ -159,7 +159,7 @@ console.log(coming)
             <a href="#">
               <img src="/svg/discord-logo.png" alt="#" />
             </a>
-          <button className="connect_button">Conectar wallet</button>
+          <button onClick={connect} className="connect_button">Conectar wallet</button>
           </ul>
         </nav>
         <nav className="responsiveNav">

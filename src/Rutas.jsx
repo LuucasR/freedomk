@@ -20,6 +20,8 @@ export default Rutas
 
 const esp = 
 {
+    comingsoon: "Proximamente",
+    mint: "Mint",
     image_url_father: "./images/esp.png",
     image_url_children: "./images/eeuu.png",
     link_1 : "Coleccion NFT",
@@ -53,6 +55,8 @@ const esp =
 
 const en = 
 {
+    comingsoon: "Coming soon",
+    mint: "Mint",
     image_url_father: "./images/eeuu.png",
     image_url_children: "./images/esp.png",
     link_1 : "NFT Collection",

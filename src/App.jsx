@@ -26,7 +26,9 @@ function App({props}) {
     sub_description_2,
     sub_description_3,
     footer_1,
-    locate_href
+    locate_href,
+    comingsoon,
+    mint
   } = props
 
   //conexion metamask
@@ -49,21 +51,33 @@ function App({props}) {
   }, [connect]);
 
 
-  const truncatedAddress = useTruncatedAddress(account);
-
-  console.log(truncatedAddress)
-    const [numero, setNumero] = useState("0")
+    const truncatedAddress = useTruncatedAddress(account);
+    const [coming, setComing] = useState(mint)
+    console.log(truncatedAddress)
+    const [numero, setNumero] = useState("1")
 
     const contadorNumero = (e) =>{
     setNumero(e.target.value)
     }
 
+    const comingSoon = () => {
+        setComing(comingsoon);
+    }
+
+    useEffect(() => {
+      if(coming === (comingsoon)){
+        setTimeout(function () {
+          setComing(mint);
+        }, 3000);
+      }
+    })
     
+console.log(coming)    
 
     const contractNft = useNft();
 
    const mintear = () => {
-    contractNft.methods.mint(numero).send({
+    contractNft.methods.mint(numero, account).send({
       from:account,
      value: "20000000000000000" * numero
     });
@@ -206,7 +220,7 @@ function App({props}) {
         <div className="main-header">
           <p>{title_1}</p>
           <div className="button-container">
-            <button onClick={mintear}>Minting</button>
+            <button onClick={mintear}>{coming}</button>
           </div>
           <div className="header-separation"></div>
           <p className="header-price">0.35 ETH</p>
